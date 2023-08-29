@@ -459,20 +459,27 @@
 
 .skills_body {
     max-width: 1420px;
-    padding: 55px 0 121px 0;
+    padding-top: 55px;
+    /*padding-bottom: 116px;*/
 }
 
 .skills_title {
-
+    margin: 0 0 130px 0;
 }
 
 .skills_icons {
     display: flex;
-    margin: 132px 0 0 0;
+    flex-wrap: wrap;
+}
+
+.skills_icon:not(:last-child) {
+    margin-right: 54px;
 }
 
 .skills_icon {
-    width: 128px;
+    box-sizing: border-box;
+    width: 108px;
+    margin: 0 0 108px;
 }
 
 .skills_icon > img {
