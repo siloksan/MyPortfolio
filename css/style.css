@@ -1,8 +1,14 @@
+/*---------VAR----------*/
+:root {
+    --width-page: 1420px
+}
+
 /*----------additional class---------------*/
 ._container {
     margin: 0 auto;
     box-sizing: content-box;
     padding: 0 15px;
+    max-width: var(--width-page);
 }
 
 ._icons {
@@ -28,6 +34,23 @@
 .border_solid {
     position:relative;
     display:inline-block;
+    border-radius: 8px;
+    transition: all 0.3s ease 0s;
+}
+
+.text_black:hover {
+    color: #727272;
+}
+
+.text_black:hover a svg{
+    fill: #727272;
+}
+
+.border_solid:hover {
+    background:linear-gradient(180deg, #70FF00 55%, #FFFFFF 100%);
+    -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
 }
 
 .border_solid::before {
@@ -37,7 +60,7 @@
     left:0;
     right:0;
     bottom:0;
-    border-radius: 12px;
+    border-radius: 8px;
     padding:4px;
     background:linear-gradient(180deg, #70FF00 55%, #FFFFFF 100%);
     -webkit-mask:
@@ -107,10 +130,21 @@
 }
 
 .menu__link {
+    display: flex;
+    text-align: center;
     color: inherit;
     line-height: calc(24 / 16 * 100%);
     align-items: center;
     padding: 10px;
+}
+
+.menu__link svg{
+    padding-right: 10px;
+    fill: #F2F2F2;
+}
+
+.menu__link:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 1300px) {
@@ -153,20 +187,26 @@
 }
 
 .page__main-block {
-
+    background: linear-gradient(135deg, #000 0%, #272727 44.03%, #494949 99.99%, #727272 100%);
 }
 
 .page__skills {
+    background: #161616;
+}
 
+.page__project {
+    background: linear-gradient(135deg, #000 0%, #272727 44.03%, #494949 99.99%, #727272 100%);
+}
+
+.page__courses {
+background-color: #161616;
 }
 
 /*----------MAIN--------------------------------------------*/
 .main-block__container {
-    background: linear-gradient(135deg, #000 0%, #272727 44.03%, #494949 99.99%, #727272 100%);
 }
 /*-----body-top-------*/
 .main-block__body-top {
-    max-width: 1420px;
     padding-top: 200px;
     display: flex;
     justify-content: space-between;
@@ -453,8 +493,7 @@
 /*----SKILLS---------------------*/
 
 .skills__container {
-    background: #161616;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 
 .skills_body {
@@ -484,4 +523,241 @@
 
 .skills_icon > img {
     width: 100%;
+}
+
+@media (max-width: 479px) {
+    .skills_icon {
+        box-sizing: border-box;
+        width: 80px;
+        margin: 0 0 80px;
+    }
+    .skills_icon:not(:last-child) {
+        margin-right: 24px;
+    }
+}
+
+/*------PROJECT-----------------*/
+
+.project {
+}
+
+.project__container {
+    max-width: 1420px;
+    padding-top: 110px;
+    padding-bottom: 224px;
+    margin: 0 auto;
+    box-sizing: content-box;
+    min-width: 0;
+}
+
+.project__slider {
+    margin: 82px 0 0 0;
+}
+
+.project__slider-wrapper {
+
+}
+
+.project_title {
+
+}
+
+.project__slider-slide {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: url("../img/cursor/cursor.png") 23 0, auto;
+}
+
+.project__slider-image {
+    text-align: center;
+    transition: opacity 2s ease-in-out;
+}
+
+.project__slider-slide:hover {
+    border-color: #70FF00;
+}
+
+.project__slider-title {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px;
+    width: 100%;
+    background: rgba(76, 76, 76, 0.66);
+    font-size: 35px;
+    font-weight: 700;
+    color: #FFF;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 2s;
+}
+
+.project__slider-slide:hover > .project__slider-image {
+    opacity: .6;
+}
+
+.project__slider-slide:hover > .project__slider-title {
+    opacity: 1;
+}
+
+.project__slider-image img{
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .project__container {
+        padding-top: 70px;
+        padding-bottom: 112px;
+        margin: 0 auto;
+        box-sizing: content-box;
+        min-width: 0;
+    }
+}
+
+/*------COURSES------------------*/
+
+.courses__container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.courses__title {
+    margin: 0 0 50px 0;
+}
+
+.courses__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses__content::before {
+    content: "";
+    align-self: center;
+    display: block;
+    height: 90%;
+    width: 0;
+    border: 2px solid #70FF00;
+    position: absolute;
+    z-index: 2;
+}
+
+.courses__row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}
+
+.course {
+    order: 1;
+    flex: 1 1 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 70px 0 170px;
+}
+
+.courses__row::after {
+    align-self: flex-start;
+    order: 0;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    content: url("../img/figures/Ellipse 15.svg");
+    z-index: 3;
+}
+
+.courses__row::before {
+    order: -1;
+    flex: 1 1 30%;
+    content: "";
+}
+
+.courses__row:nth-child(even)::before {
+    order: 1;
+}
+
+.courses__row:nth-child(even) .course {
+    padding: 10px 170px 0 70px;
+    order: -1;
+}
+
+.course__title {
+    color: #70FF00;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 6px 0;
+}
+
+.course__text {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0 0 28px 0;
+}
+
+.course__button {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    padding: 10px 30px;
+    transition: all 0.3s ease 0s;
+}
+
+.course__button:hover {
+    color: #161616;
+}
+
+@media (max-width: 1300px) {
+    .course {
+        padding: 10px 20px 0 70px;
+    }
+
+    .courses__row:nth-child(even) .course {
+        padding: 10px 70px 0 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .course {
+        padding: 20px;
+    }
+
+    .courses__content::before {
+        margin-left: 13px;
+        align-self: start;
+    }
+
+    .courses__row:nth-child(even) .course {
+        margin-left: 13px;
+        align-self: start;
+        order: 2;
+    }
+    .courses__row::before {
+        order: 3;
+        flex: 0 1 auto;
+        content: "";
+    }
+    .courses__row:not(:last-child) {
+        margin: 0 0 30px 0;
+    }
+}
+
+@media (max-width: 479px) {
+    .course {
+        padding: 5px;
+    }
+    .courses__row:nth-child(even) .course {
+        padding: 5px;
+    }
 }
