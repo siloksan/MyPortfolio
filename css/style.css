@@ -739,9 +739,9 @@ background-color: #161616;
     }
 
     .courses__row:nth-child(even) .course {
-        margin-left: 13px;
         align-self: start;
         order: 2;
+        padding: 20px;
     }
     .courses__row::before {
         order: 3;
